@@ -1,3 +1,4 @@
 **/input.in filter=git-crypt diff=git-crypt
 **/input.refout filter=git-crypt diff=git-crypt
 **/input.refout filter=git-crypt diff=git-crypt
+**/Day*/README.md filter=git-crypt diff=git-crypt
