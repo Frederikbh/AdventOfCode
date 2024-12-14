@@ -6,12 +6,12 @@ namespace AdventOfCode._2024.Day10;
 public class Solution : ISolver
 {
     private static readonly (int, int)[] s_directions =
-    [
+    {
         (0, 1),
         (0, -1),
         (1, 0),
         (-1, 0)
-    ];
+    };
 
     public object PartOne(string input)
     {
@@ -27,7 +27,7 @@ public class Solution : ISolver
         return TotalScore(map, false);
     }
 
-    private static int TotalScore(int[][] map, bool countUniqueRoutes = true)
+    private static int TotalScore(int[][] map, bool countUniqueRoutes)
     {
         var totalScore = 0;
 
@@ -35,20 +35,17 @@ public class Solution : ISolver
         {
             for (var x = 0; x < map[y].Length; x++)
             {
-                if (map[y][x] != 0)
+                if (map[y][x] == 0)
                 {
-                    continue;
+                    totalScore += CalculateTrailheadScore(map, x, y, countUniqueRoutes);
                 }
-
-                var trailheadScore = CalculateTrailheadScore(map, x, y, countUniqueRoutes);
-                totalScore += trailheadScore;
             }
         }
 
         return totalScore;
     }
 
-    private static int CalculateTrailheadScore(int[][] map, int x, int y, bool countUniqueRoutes = true)
+    private static int CalculateTrailheadScore(int[][] map, int x, int y, bool countUniqueRoutes)
     {
         var trailTops = new HashSet<(int x, int y)>();
         var score = 0;
@@ -80,14 +77,8 @@ public class Solution : ISolver
                 var nextX = currentX + dx;
                 var nextY = currentY + dy;
 
-                if (nextX < 0 || nextX >= map[0].Length || nextY < 0 || nextY >= map.Length)
-                {
-                    continue;
-                }
-
-                var nextHeight = map[nextY][nextX];
-
-                if (nextHeight == currentHeight + 1)
+                if (IsValidCoordinate(nextX, nextY, map.Length, map[0].Length) &&
+                    map[nextY][nextX] == currentHeight + 1)
                 {
                     queue.Enqueue((nextX, nextY));
                 }
@@ -99,10 +90,13 @@ public class Solution : ISolver
             : score;
     }
 
+    private static bool IsValidCoordinate(int x, int y, int height, int width) =>
+        x >= 0 && x < width && y >= 0 && y < height;
+
     private static int[][] ParseMap(string input) =>
         input.Split('\n')
             .Select(
-                e => e.ToCharArray()
+                line => line.ToCharArray()
                     .Select(c => c - '0')
                     .ToArray())
             .ToArray();
