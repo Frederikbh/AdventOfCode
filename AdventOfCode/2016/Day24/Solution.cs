@@ -167,5 +167,5 @@ public class Solution : ISolver
         }
     }
 
-    internal record struct Point(int Y, int X);
+    private record struct Point(int Y, int X);
 }
