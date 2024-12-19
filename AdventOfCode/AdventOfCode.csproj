@@ -94,4 +94,8 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="2017\Day18\NewFolder\" />
+  </ItemGroup>
+
 </Project>
