@@ -23,22 +23,31 @@ public class Solution : ISolver
 
     private static int CountCheats(List<Point> path, int maxCheatSteps)
     {
-        var cheatSavings = new List<int>();
+        var cheats = 0;
 
-        for (var i = 0; i < path.Count - 3; i++)
+        var x = new int[path.Count];
+        var y = new int[path.Count];
+
+        for (var i = 0; i < path.Count; i++)
         {
-            for (var j = i + 3; j < path.Count; j++)
-            {
-                var distance = Math.Abs(path[j].X - path[i].X) + Math.Abs(path[j].Y - path[i].Y);
+            x[i] = path[i].X;
+            y[i] = path[i].Y;
+        }
 
-                if (distance <= maxCheatSteps)
+        for (var i = 0; i < path.Count - 100; i++)
+        {
+            for (var j = i + 100; j < path.Count; j++)
+            {
+                var distance = Math.Abs(x[j] - x[i]) + Math.Abs(y[j] - y[i]);
+
+                if (distance <= maxCheatSteps && j - i - distance > 99)
                 {
-                    cheatSavings.Add(j - i - distance);
+                    cheats++;
                 }
             }
         }
 
-        return cheatSavings.Count(x => x > 99);
+        return cheats;
     }
 
     private static List<Point> FindTrack(char[][] track)
