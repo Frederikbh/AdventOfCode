@@ -8,8 +8,8 @@ public class SplashScreenImpl : ISplashScreen {
 
         var color = Console.ForegroundColor;
         Write(0xcc00, false, "           ▄█▄ ▄▄█ ▄ ▄ ▄▄▄ ▄▄ ▄█▄  ▄▄▄ ▄█  ▄▄ ▄▄▄ ▄▄█ ▄▄▄\n           █▄█ █ █ █ █ █▄█ █ █ █   █ █ █▄ ");
-            Write(0xcc00, false, " █  █ █ █ █ █▄█\n           █ █ █▄█ ▀▄▀ █▄▄ █ █ █▄  █▄█ █   █▄ █▄█ █▄█ █▄▄  /^2018$/\n            \n   ");
-            Write(0xcc00, false, "                                                           ");
+            Write(0xcc00, false, " █  █ █ █ █ █▄█\n           █ █ █▄█ ▀▄▀ █▄▄ █ █ █▄  █▄█ █   █▄ █▄█ █▄█ █▄▄  $year = 2018\n            ");
+            Write(0xcc00, false, "\n                                                              ");
             Write(0xcccccc, false, "25 ");
             Write(0x666666, false, "**\n                                                              ");
             Write(0xcccccc, false, "24 ");
@@ -45,21 +45,22 @@ public class SplashScreenImpl : ISplashScreen {
             Write(0xcccccc, false, " 9 ");
             Write(0x666666, false, "**\n                   .---_                                      ");
             Write(0xcccccc, false, " 8 ");
-            Write(0x666666, false, "**\n                  /   /\\|                                     ");
+            Write(0x666666, false, "**\n                  / / /\\|                                     ");
             Write(0xcccccc, false, " 7 ");
-            Write(0x666666, false, "**\n                /   | \\                                       ");
+            Write(0x666666, false, "**\n                / / | \\ *                                     ");
             Write(0xcccccc, false, " 6 ");
-            Write(0x666666, false, "**\n               /  /    \\                                      ");
+            Write(0x666666, false, "**\n               /  /  \\ \\                                      ");
             Write(0xcccccc, false, " 5 ");
-            Write(0x666666, false, "**\n              /         \\                                     ");
+            Write(0x666666, false, "**\n              / /  / \\  \\                                     ");
             Write(0xcccccc, false, " 4 ");
-            Write(0x666666, false, "**\n            ./ ~~~ ~~~~ ~\\.                                   ");
+            Write(0xffff66, false, "**\n           ");
+            Write(0x666666, false, " ./~~~~~~~~~~~\\.                                   ");
             Write(0xcccccc, false, " 3 ");
             Write(0xffff66, false, "**\n           ");
-            Write(0x666666, false, "(  \"    -    .  )                                  ");
+            Write(0x666666, false, "( .\",^. -\". '.~ )                                  ");
             Write(0xcccccc, false, " 2 ");
             Write(0xffff66, false, "**\n           ");
-            Write(0x666666, false, "_'~  ~  ~ ~~ ~ '_________ ___ __ _  _   _    _     ");
+            Write(0x666666, false, "_'~~~~~~~~~~~~~'_________ ___ __ _  _   _    _     ");
             Write(0xcccccc, false, " 1 ");
             Write(0xffff66, false, "**\n           \n");
             
